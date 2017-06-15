@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/k_values_txtview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="k values" />
+
+    <TextView
+        android:id="@+id/term_values_txtview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="tem values" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/kp_pp_bttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kp ++" />
+
+        <Button
+            android:id="@+id/ki_pp_bttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ki ++" />
+
+        <Button
+            android:id="@+id/kd_pp_bttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kd ++" />
+
+        <Button
+            android:id="@+id/div_pp_bttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="div ++" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/kp_mm_bttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kp --" />
+
+        <Button
+            android:id="@+id/ki_mm_bttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ki --" />
+
+        <Button
+            android:id="@+id/kd_mm_bttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kd --" />
+
+        <Button
+            android:id="@+id/div_mm_bttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="div --" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/calib_on_bttn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="calibration on" />
+
+    <Button
+        android:id="@+id/calib_off_bttn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="calibration off" />
+
+    <LinearLayout
+        android:id="@+id/chart_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"></LinearLayout>
+</LinearLayout>
