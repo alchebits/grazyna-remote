@@ -98,7 +98,6 @@ public class CalibrateActivity extends AppCompatActivity {
                             }
                             sb.append((char)readBuf[i]);
                         }
-
                         break;
                 }
             };
@@ -172,7 +171,7 @@ public class CalibrateActivity extends AppCompatActivity {
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         Log.d(MainActivity.APP_NAME, "...In onPause()...");
-        mConnectedThread.write(GrazynaArduino.BT_COMM_DELIMETER+GrazynaArduino.BT_CALIBRATION_OFF_MSG+GrazynaArduino.BT_COMM_DELIMETER);
+        mConnectedThread.write(GrazynaArduino.BT_CALIBRATION_OFF_MSG+GrazynaArduino.BT_COMM_DELIMETER);
         try {
             btSocket.close();
         } catch (IOException e2) {
@@ -205,20 +204,86 @@ public class CalibrateActivity extends AppCompatActivity {
     {
         Button calibOnBttn = (Button)findViewById(R.id.calib_on_bttn);
         Button calibOffBttn = (Button)findViewById(R.id.calib_off_bttn);
+        Button kpPlusBttn = (Button) findViewById(R.id.kp_pp_bttn);
+        Button kiPlusBttn = (Button) findViewById(R.id.ki_pp_bttn);
+        Button kdPlusBttn = (Button) findViewById(R.id.kd_pp_bttn);
+        Button divPlusBttn = (Button) findViewById(R.id.div_pp_bttn);
+        Button kpMinusBttn = (Button) findViewById(R.id.kp_mm_bttn);
+        Button kiMinusBttn = (Button) findViewById(R.id.ki_mm_bttn);
+        Button kdMinusBttn = (Button) findViewById(R.id.kd_mm_bttn);
+        Button divMinusBttn = (Button) findViewById(R.id.div_mm_bttn);
 
         calibOnBttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mConnectedThread.write(GrazynaArduino.BT_COMM_DELIMETER+GrazynaArduino.BT_CALIBRATION_ON_MSG+GrazynaArduino.BT_COMM_DELIMETER);
+                mConnectedThread.write(GrazynaArduino.BT_CALIBRATION_ON_MSG+GrazynaArduino.BT_COMM_DELIMETER);
             }
         });
 
         calibOffBttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mConnectedThread.write(GrazynaArduino.BT_COMM_DELIMETER+GrazynaArduino.BT_CALIBRATION_OFF_MSG+GrazynaArduino.BT_COMM_DELIMETER);
+                mConnectedThread.write(GrazynaArduino.BT_CALIBRATION_OFF_MSG+GrazynaArduino.BT_COMM_DELIMETER);
             }
         });
+
+        kpPlusBttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mConnectedThread.write(GrazynaArduino.BT_CALIBRATION_KP_PP+GrazynaArduino.BT_COMM_DELIMETER);
+            }
+        });
+
+        kiPlusBttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mConnectedThread.write(GrazynaArduino.BT_CALIBRATION_KI_PP+GrazynaArduino.BT_COMM_DELIMETER);
+            }
+        });
+
+        kdPlusBttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mConnectedThread.write(GrazynaArduino.BT_CALIBRATION_KD_PP+GrazynaArduino.BT_COMM_DELIMETER);
+            }
+        });
+
+        divPlusBttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mConnectedThread.write(GrazynaArduino.BT_CALIBRATION_DIV_PP+GrazynaArduino.BT_COMM_DELIMETER);
+            }
+        });
+
+        kpMinusBttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mConnectedThread.write(GrazynaArduino.BT_CALIBRATION_KP_MM+GrazynaArduino.BT_COMM_DELIMETER);
+            }
+        });
+
+        kiMinusBttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mConnectedThread.write(GrazynaArduino.BT_CALIBRATION_KI_MM+GrazynaArduino.BT_COMM_DELIMETER);
+            }
+        });
+
+        kdMinusBttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mConnectedThread.write(GrazynaArduino.BT_CALIBRATION_KD_MM+GrazynaArduino.BT_COMM_DELIMETER);
+            }
+        });
+
+        divMinusBttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mConnectedThread.write(GrazynaArduino.BT_CALIBRATION_DIV_MM+GrazynaArduino.BT_COMM_DELIMETER);
+            }
+        });
+
+
     }
 
     public void parseCommand(String btCommand)
